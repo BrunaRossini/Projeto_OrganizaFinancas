@@ -58,7 +58,7 @@ public class TelaCategoria extends javax.swing.JDialog {
         jPanel1 = new javax.swing.JPanel();
         jbCadastrarCategoria = new javax.swing.JButton();
         jbExcluir = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
+        jbSair = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         tfPesquisarCategoria = new javax.swing.JTextField();
         jbPesquisarTelaCategoria = new javax.swing.JButton();
@@ -105,8 +105,13 @@ public class TelaCategoria extends javax.swing.JDialog {
         });
         jPanel1.add(jbExcluir);
 
-        jButton4.setText("Sair");
-        jPanel1.add(jButton4);
+        jbSair.setText("Sair");
+        jbSair.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbSairActionPerformed(evt);
+            }
+        });
+        jPanel1.add(jbSair);
 
         jLabel1.setText("Pesquisar:");
 
@@ -175,13 +180,12 @@ public class TelaCategoria extends javax.swing.JDialog {
     }//GEN-LAST:event_jbPesquisarTelaCategoriaActionPerformed
 
     private void jbExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbExcluirActionPerformed
-        if (jtTabelaCategoria.getSelectedRow() > 0) {
-            if (Mensagem.confirmar(this, "Deseja Excluir o Registro?")) {
-                new CategoriaDAO().excluirCategoria(lista.get(jtTabelaCategoria.getSelectedRow()));
+        try {
+            new CategoriaDAO().excluirCategoria(lista.get(jtTabelaCategoria.getSelectedRow()));
                 Mensagem.informacao(this, "Registro excluído com sucesso");
                 atualizarTabelaCategoria();
-            }
-        } else {
+        } catch (Exception e) {
+            System.err.println("Erro ao excluir categoria" +  e.getMessage());
             Mensagem.alerta(this, "Selecione um registro!");
         }
     }//GEN-LAST:event_jbExcluirActionPerformed
@@ -193,6 +197,10 @@ public class TelaCategoria extends javax.swing.JDialog {
 
 
     }//GEN-LAST:event_jbCadastrarCategoriaActionPerformed
+
+    private void jbSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbSairActionPerformed
+       this.dispose();
+    }//GEN-LAST:event_jbSairActionPerformed
 
     /**
      * @param args the command line arguments
@@ -237,7 +245,6 @@ public class TelaCategoria extends javax.swing.JDialog {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton4;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JPanel jPanel1;
@@ -245,6 +252,7 @@ public class TelaCategoria extends javax.swing.JDialog {
     private javax.swing.JButton jbCadastrarCategoria;
     private javax.swing.JButton jbExcluir;
     private javax.swing.JButton jbPesquisarTelaCategoria;
+    private javax.swing.JButton jbSair;
     private javax.swing.JTable jtTabelaCategoria;
     private javax.swing.JTextField tfPesquisarCategoria;
     // End of variables declaration//GEN-END:variables

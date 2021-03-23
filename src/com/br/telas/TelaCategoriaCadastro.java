@@ -48,7 +48,7 @@ public class TelaCategoriaCadastro extends javax.swing.JDialog {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        jButton1 = new javax.swing.JButton();
+        jbCancelar = new javax.swing.JButton();
         jbSalvar = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
@@ -60,13 +60,13 @@ public class TelaCategoriaCadastro extends javax.swing.JDialog {
 
         jPanel1.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(153, 0, 153), 2, true));
 
-        jButton1.setText("Cancelar");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        jbCancelar.setText("Cancelar");
+        jbCancelar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                jbCancelarActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton1);
+        jPanel1.add(jbCancelar);
 
         jbSalvar.setText("Salvar");
         jbSalvar.addActionListener(new java.awt.event.ActionListener() {
@@ -125,11 +125,12 @@ public class TelaCategoriaCadastro extends javax.swing.JDialog {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
+    private void jbCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbCancelarActionPerformed
+        this.dispose();
+    }//GEN-LAST:event_jbCancelarActionPerformed
 
     private void jbSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbSalvarActionPerformed
+        
         new CategoriaDAO().inserirCategoria(cadastrarCategoria());
         Mensagem.informacao(this, "Registro Salvo com Sucesso!");
         this.mae.atualizarTabelaCategoria();
@@ -180,10 +181,10 @@ public class TelaCategoriaCadastro extends javax.swing.JDialog {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JComboBox<String> cbTipoCategoria;
-    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JButton jbCancelar;
     private javax.swing.JButton jbSalvar;
     private javax.swing.JTextField txNomeDescricaoCategoria;
     // End of variables declaration//GEN-END:variables
