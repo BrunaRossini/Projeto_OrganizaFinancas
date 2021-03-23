@@ -9,7 +9,7 @@ import javax.persistence.Query;
 
 public class MovimentacaoDAO {
     
-    private EntityManager em;
+    private final EntityManager em;
     
     public MovimentacaoDAO(){
         em = Singleton.getConnection();

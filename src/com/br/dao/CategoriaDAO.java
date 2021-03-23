@@ -9,7 +9,7 @@ import javax.persistence.Query;
 
 public class CategoriaDAO {
     
-    private EntityManager em;
+    private final EntityManager em;
     
     public CategoriaDAO(){
         em = Singleton.getConnection();

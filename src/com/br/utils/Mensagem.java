@@ -20,9 +20,11 @@ public class Mensagem {
     public static boolean confirmar(Component frame, String mensagem){
         Object[] opcoes = {"Sim","Não"};
         int opcao = JOptionPane.showOptionDialog(frame, mensagem,"Confirmar",JOptionPane.DEFAULT_OPTION,JOptionPane.QUESTION_MESSAGE,null,opcoes,opcoes[0]);
+          return true;
+        }
         
-                         return true;
+                         
     }
     
-}
+
     
